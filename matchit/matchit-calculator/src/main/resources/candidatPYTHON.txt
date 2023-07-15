@@ -1,0 +1,6 @@
+Guilherme - Développeur PYTHON
+
+PYTHON
+POSTGRES
+DJANGO
+	

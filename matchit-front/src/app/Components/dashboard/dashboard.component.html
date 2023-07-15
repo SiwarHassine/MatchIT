@@ -1,0 +1,155 @@
+<ng-container *ngIf="isLoading">
+    <app-loading-page></app-loading-page>
+</ng-container>
+<!-- Page Content -->
+<div class="content container-fluid" #chartsContainer *ngIf="!isLoading">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-outline pdf-btn" (click)="downloadPDF()">Télécharger PDF</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <div class="dash-widget-info ">
+                        <span *ngIf="candidats">
+                            <b>{{candidats.length}}</b> Candidats</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon">
+                        <i class="fa fa-briefcase"></i>
+                    </span>
+                    <div class="dash-widget-info">
+                        <span *ngIf="offers">
+                            <b>{{offers.length}}</b> Offres</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+            <div class="card dash-widget">
+                <div class="card-body">
+                    <span class="dash-widget-icon">
+                        <i class="fa fa-cubes"></i>
+                    </span>
+                    <div class="dash-widget-info">
+                        <span *ngIf="applications">
+                            <b>{{applications.length}}</b> Candidatures</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="card">
+                        <div class="card-body">
+                            <ng-container *ngIf="isLoading">
+                                <app-loading-page></app-loading-page>
+                            </ng-container>
+                            <table class="table table-hover ">
+                                <thead>
+                                    <tr>
+                                        <th>Titre de l'offre</th>
+                                        <th>Candidat</th>
+                                        <th>Suivi</th>
+                                        <th>Score</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let application of displayedApplication">
+                                        <!--  <td *ngFor="let offer of application.offer">{{ offer.title }}</td>
+                                                        <td *ngFor="let user of application.user"><a href="/candidat"></a></td> -->
+                                        <td>{{ application?.offer?.title }}</td>
+                                        <td>
+                                            <a type="button" class="btn btn-link" [routerLink]="['/candidat', application?.user?.id, application?.type, application?.etat ,'dashboard']">
+                                                {{ application?.user?.firstname }} {{application?.user?.name }}
+                                            </a>
+                                            
+                                        </td>
+                                        <td>{{ application?.etat !== "NULL" ? application.etat : '-' }}</td>
+                                        <td>
+                                            <b>{{ application?.score | number:'1.0-2' }}%</b>
+                                        </td>
+
+
+                                        <td>
+                                            <span [ngClass]="{'text-primary': application.type === 'AUTO', 'text-warning': application.type === 'POSTULER'}">
+                                                <b>{{ application?.type }}</b>
+                                            </span>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-12 d-flex justify-content-end align-items-center">
+                                        <button class="btn btn-page mr-1" [disabled]="pageNumber == 0" (click)="previousPage()">Previous</button>
+                                        <div class="mr-1">Page {{ pageNumber + 1 }} / {{ totalPages }}</div>
+                                        <button class="btn btn-page" [disabled]="pageNumber == totalPages - 1" (click)="nextPage()">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Widget -->
+    <div class="row justify-content-center align-items-center ">
+        <div class="col-md-7 d-flex">
+
+            <div class="card flex-fill dash-statistics">
+                <div class="card-body justify-content-center">
+                    <h4 class="card-title">Le nombre de candidats par tranche d'age</h4>
+                    <div class="chart-container ngx-charts-bar-vertical">
+                        <ngx-charts-bar-vertical [view]="viewBar" [scheme]="colorSchemeBar" [results]="genreChartBar" [gradient]="gradientBar" [xAxis]="xAxis"
+                            [yAxis]="yAxis" [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+                            [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [xAxisTicks]="xAxisTicks" [yAxisTicks]="yAxisTicks"
+                            [trimXAxisTicks]="trimXAxisTicks" [trimYAxisTicks]="trimYAxisTicks" [rotateXAxisTicks]="rotateXAxisTicks"
+                            [maxXAxisTickLength]="maxXAxisTickLength" [maxYAxisTickLength]="maxYAxisTickLength" [roundEdges]="roundEdges"
+                            [barPadding]="barPadding" [animations]="animations" [showDataLabel]="showDataLabel" [tooltipDisabled]="tooltipDisabled"
+                            [yScaleMax]="yScaleMax">
+                        </ngx-charts-bar-vertical>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 d-flex">
+            <div class="card flex-fill dash-statistics">
+                <div class="card-body ">
+                    <h4 class="card-title">Le nombre de candidats par sexe</h4>
+                    <div class="chart-container .ngx-charts-pie-chart">
+                        <ngx-charts-pie-chart [results]="genreChart" [view]="view" [scheme]="colorScheme" [gradient]="gradient" [legend]="showLegend"
+                            [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut"></ngx-charts-pie-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /Statistics Widget -->
+
+
+
+</div>
+<!-- /Page Content -->

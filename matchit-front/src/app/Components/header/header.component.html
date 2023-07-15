@@ -1,0 +1,61 @@
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-solid navbar-expand-lg ">
+            <a class="navbar-brand logo-img" href="/">
+              <img src="../../assets/logo-orange.png" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+            <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" *ngIf="!user">
+                      <a id="loginLink" class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item" *ngIf="user">
+                        <a  class="nav-link">{{user.firstname}} {{user.name}}</a>
+                      </li>
+                    <li class="nav-item">
+                        <a id="logoutLink" class="nav-link" type="submit" (click)="submit()">Logout</a>
+                      </li>
+                    
+                    <li class="nav-item" *ngIf="!user">
+                      <a  class="nav-link" href="/register">Register</a>
+                    </li>
+                  </ul>
+                  
+
+    </nav>
+    
+    <nav *ngIf="user" class="navbar navbar-transparent navbar-expand-lg navbar-light bg-light ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="role === 'RECRUTEUR' || role === 'ADMIN'" class="nav-item active">
+                <a class="nav-link" href="dashboard">Dashboard </a>
+                </li>
+                <li *ngIf="role === 'CANDIDAT'" class="nav-item active">
+                  <a class="nav-link" href="applications">Mes candidatures</a>
+                </li>
+            <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      Profil
+                  </a>
+                  <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="/profil">Mes info</a></li>
+                  </ul>
+              </li>  
+               <li *ngIf="role === 'CANDIDAT'" class="nav-item active">
+                 <a class="nav-link" href="/offers">Offers</a>
+                </li>
+                <li *ngIf="role === 'RECRUTEUR' || role === 'ADMIN'" class="nav-item active">
+                    <a class="nav-link" href="/offers/Recrutor">Offers</a>
+                   </li>
+                 <li *ngIf="role === 'ADMIN'" class="nav-item active">
+                    <a class="nav-link" href="/recruteurs">Recruteurs</a>
+                   </li>
+                   
+        </ul>         
+        
+        </div>
+    </nav>
+   </div> 

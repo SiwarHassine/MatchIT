@@ -1,0 +1,28 @@
+<ng-container *ngIf="isLoading">
+    <app-loading-page></app-loading-page>
+  </ng-container>
+  <div class="container" *ngIf="!isLoading">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <h3>Login</h3>
+            <div class="alert alert-danger mt-3" role="alert" [hidden]="!errorMessage">
+                    {{ errorMessage }}
+                  </div>
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" 
+                    [(ngModel)]="userauth.email"
+                    class="form-control" id="email" name="email" placeholder="Enter your Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" 
+                    [(ngModel)]="userauth.password"
+                    class="form-control" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn" style="background-color: rgb(226, 95, 7);">se connecter</button>
+            </form>
+        </div>
+    </div>
+</div>

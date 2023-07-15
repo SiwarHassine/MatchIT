@@ -1,0 +1,24 @@
+footer {
+    
+    bottom: 1px;
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    padding: 10px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(231, 231, 231);
+    
+  }
+  footer h6 {
+    color: rgb(241, 104, 12);
+  }
+  
+  footer ul li a {
+    color: rgb(24, 24, 24);
+  }
+  
+  footer p {
+    margin: 0;
+  }
+
+  

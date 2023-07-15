@@ -1,0 +1,66 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    
+   
+  }
+  .navbar-transparent {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    top: 70px;
+  }
+  .navbar-solid {
+    background-color: rgb(24, 24, 24);
+  
+  }
+ 
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(241, 104, 12);
+  }
+
+  .logo-img {
+    margin-left: 40px;
+  }
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+  }
+  
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 0.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(48, 48, 48);
+  }
+
+  .ml-auto .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(235, 235, 235);
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: rgb(235, 98, 8);
+  }
+ 
+
+.navbar-nav.ml-auto {
+    margin-left: auto;
+  }
+  

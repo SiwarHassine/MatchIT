@@ -1,0 +1,199 @@
+
+<ng-container *ngIf="isLoading">
+  <app-loading-page></app-loading-page>
+</ng-container>
+
+<div class="container" *ngIf="!isLoading">
+  <div class="row mb-3">
+    <div class="offer-details" >
+      <h3><b>{{ offer?.title }}</b></h3>
+      <p>{{ offer?.description }}</p>
+     <!-- <button type="button" class="btn btn-success" (click)="showApplicationForm()">Postuler</button>  -->
+     <button *ngIf="typeApplication === 'POSTULER'"
+     type="button"
+     class="btn btn-success"
+     [routerLink]="['/application', offer?.id]"
+     disabled>
+      Postuler
+      </button>
+
+      <button *ngIf="typeApplication === 'AUTO'"
+          type="button"
+          class="btn btn-success"
+          [routerLink]="['/application', offer?.id]">
+      Postuler
+      </button>
+
+
+
+
+    </div>
+  </div>
+</div>
+<!--Modal-->
+<div class="modal fade" id="application-form" tabindex="-1"   aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Postuler à l'offre</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hideModel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form (submit)="onApply()">
+              <!-- Ajoutez ici les champs de formulaire -->
+             
+              <div class="form-group row">
+                <label for="firstname" class="col-sm-3 col-form-label">Prénom</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="firstname" required>
+                </div>
+              </div>
+            
+              <div class="form-group row" >
+                <label for="lastname" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="lastname" required>
+                </div>
+              </div>
+          
+              <div class="form-group  row">
+                <label for="email" class="col-sm-3 col-form-label">Adresse e-mail</label>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+                </div>
+              </div>
+            
+              <div class="form-group row">
+                <label for="phone" class="col-sm-3 col-form-label">Téléphone</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="phone" required>
+                </div>
+              </div>
+          
+              <div class="form-group row">
+                <label for="birthdate" class="col-sm-3 col-form-label">Date de naissance</label>
+                <div class="col-sm-6">
+                  <input type="date" class="form-control" id="birthdate" name="birthdate" [(ngModel)]="birthdate" required>
+                </div>
+              </div>
+          
+              <div class="form-group row">
+                  <label for="experience" class="col-sm-3 col-form-label">Education</label>
+                  <div class="col-sm-6">
+                    <div class="input-group">
+                      <input class="form-control" name="education"  required>
+                      <button class="btn btn-outline-dark" type="button" (click)="showAddEducationModal()"><i class="fas fa-plus"></i></button>
+                    </div>
+                      <!--  <div *ngFor="let education of educations">
+                          {{ education.diplome }}
+                          <button type="button" class="remove-button" (click)="removeEducation(education)">
+                              <i class="fas fa-times"></i>
+                            </button>
+                            
+                          </div> -->
+                  </div>
+                </div>
+              <div class="form-group row">
+                  <label for="experience" class="col-sm-3 col-form-label">Expérience professionnelle</label>
+                  <div class="col-sm-6">
+                    <div class="input-group">
+                      <input class="form-control" name="experience" required>
+                      <button class="btn btn-outline-dark" type="button" (click)="showAddExperienceModal()"><i class="fas fa-plus"></i></button>
+                    </div>
+                       <!-- <div *ngFor="let experience of user.experiences">
+                          {{ experience.position }}
+                          <button type="button" class="remove-button" (click)="removeExperience(experience)">
+                           <i class="fas fa-times"></i>
+                            </button>
+                       </div> -->
+                  </div>
+                </div>
+          
+                <div class="form-group row">
+                    <label for="skills" class="col-sm-3 col-form-label">Compétences</label>
+                  <!--    <div class="col-sm-6">
+                      <select  class="form-control select2" id="skills"  name="skills" multiple>
+                            <option *ngFor="let skill of skills" [value]="skill">{{ skill }}</option>
+                          </select>
+                     
+                        <ng-select2 [data]="selectData" [options]="options" [width]="'500'" attr.multiple="true" 
+                        [(ngModel)]="user.competences" [ngModelOptions]="{standalone: true, name: 'competences'}"></ng-select2>              
+                      <br/> Selected values: {{ user.competences }}
+                    </div>   -->
+                  </div>
+                  
+            
+              <!-- Bouton de soumission -->
+              <button type="submit" class="btn btn-success">Postuler</button>
+            </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- Modal Experience -->
+<div class="modal fade" id="add-experience-modal" tabindex="-1" role="dialog" aria-labelledby="add-experience-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-experience-modal-label">Ajouter une expérience professionnelle</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="hideModel()" aria-label="Fermer">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <form (submit)="onAddExperience()">
+            <div class="form-group">
+              <label for="position">Poste occupé</label>
+              <input type="text" class="form-control" id="position" name="position" required>
+            </div>
+            <div class="form-group">
+              <label for="campany">Entreprise</label>
+              <input type="text" class="form-control" id="campany" name="campany" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- Modal Education -->
+  <div class="modal fade" id="add-education-modal" tabindex="-1" role="dialog" aria-labelledby="add-education-modal-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="add-education-modal-label">Ajouter education</h5>
+            <button type="button" class="close" data-dismiss="modal" (click)="hideModel()" aria-label="Fermer">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form (submit)="onAddEducation()">
+              <div class="form-group">
+                <label for="diplome">Diplome</label>
+                <input type="text" class="form-control" id="diplome" name="diplome" required>
+              </div>
+              <div class="form-group">
+                <label for="ecole">Ecole</label>
+                <input type="text" class="form-control" id="ecole" name="ecole" required>
+              </div>
+              <div class="form-group">
+                  <label for="date">Date</label>
+                    <input type="date" class="form-control" name="date" id="date" required>
+                  </div>
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

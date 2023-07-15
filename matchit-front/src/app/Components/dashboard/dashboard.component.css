@@ -1,0 +1,167 @@
+.content {
+    padding: 30px 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 1700px;
+    display: flex;
+    flex-flow: column;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    margin: 0;
+    line-height: 1;
+  }
+  .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .breadcrumb .breadcrumb-item {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .dash-widget {
+    background-color: #fff;
+    border: 1px solid #e6e6f2;
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+  .dash-widget .dash-widget-icon {
+    color: #666;
+    font-size: 30px;
+    line-height: 1;
+    float: left;
+  }
+  .dash-widget .dash-widget-info {
+    margin-left: 80px;
+  }
+  .dash-widget .dash-widget-info h3 {
+    font-size: 26px;
+    margin: 0;
+    line-height: 1;
+  }
+  .stats-info p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .stats-info strong {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  .stats-list {
+    padding: 0;
+  }
+  .stats-list .progress {
+    height: 6px;
+    margin-bottom: 10px;
+  }
+  .stats-list .progress-bar {
+    -webkit-transition: width 0.6s ease;
+    -o-transition: width 0.6s ease;
+    transition: width 0.6s ease;
+  }
+  .card{
+    border: 2px solid #030303;
+  }
+  .card table{
+    height: 300px
+  }
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .dash-statistics {
+    background-color: #fff;
+    
+    padding: 15px;
+    margin-bottom: 30px;
+    margin-top: 30px
+  }
+  .dash-statistics .stats-info p {
+    margin-bottom: 5px;
+  }
+  .dash-statistics .stats-info strong {
+    margin-bottom: 5px;
+  }
+  .page-link {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+  
+  .page-link:hover {
+    z-index: 2;
+    color: #0056b3;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+  }
+  
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+  
+  .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  .table-primary {
+    background-color: rgba(61, 127, 250, 0.986);
+    color: black;
+  }
+  
+  .table-warning {
+    background-color: rgb(248, 154, 72);
+    color: black;
+  }
+  .text-primary {
+    color: rgb(5, 47, 187);
+  }
+  
+  .text-warning {
+    color: rgb(255, 145, 0);
+  }
+  .chart-container {
+    justify-content: center;
+    align-items: center;
+    height: 300px;/* ajustez la hauteur en fonction de vos besoins */
+    margin: 0 auto;
+    display: grid;
+    
+    /* centrer horizontalement */
+  }
+  
+  .chart-container .ngx-charts-bar-vertical {
+   /* ajustez la hauteur en fonction de la hauteur de .chart-container */
+    width: 100%; /* ajustez la largeur en fonction de la largeur de .chart-container */
+  }
+
+  .chart-container .ngx-charts-pie-chart {
+    /* ajustez la hauteur en fonction de la hauteur de .chart-container */
+    width: 40%; /* ajustez la largeur en fonction de la largeur de .chart-container */
+  }
+  a {
+    color: #333; /* changer la couleur en gris foncé */
+    text-decoration: none; /* supprimer la soulignement */
+  }
+
+  .pdf-btn{
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      justify-content: flex-end;
+  }

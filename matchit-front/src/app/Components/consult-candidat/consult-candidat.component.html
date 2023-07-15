@@ -1,0 +1,57 @@
+<ng-container *ngIf="isLoading">
+  <app-loading-page></app-loading-page>
+</ng-container>
+
+<div class="container" *ngIf="!isLoading">
+  <div class="row mb-3">
+    <div class="cv col-md-9">
+      <div class="row">
+        <div class="header col-md-7">
+          <h1>
+            <b>{{name}}</b>
+          </h1>
+          <p>
+            <b>Email</b> : {{ email }}</p>
+          <p>
+            <b>LinkedIn</b> : {{ linkedIn }}</p>
+          <p>
+            <b>GitHub</b> : {{ github }} </p>
+          <p>
+            <b>Adresse</b> : {{ adresse }}</p>
+          <p>
+            <b>Téléphone</b> : {{ phone }}</p>
+
+
+        </div>
+        <div class="photo col-md-5">
+          <img src="../../assets/user.jpg" alt="Photo du candidat">
+        </div>
+      </div>
+      <div class="content">
+        <h2>
+          <b>Expériences</b>
+        </h2>
+        <ul>
+          <li *ngFor="let experience of experiences">{{ experience }}</li>
+        </ul>
+        <h2>
+          <b>Compétences</b>
+        </h2>
+        <ul>
+          <li *ngFor="let competence of competences">{{ competence }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-success" (click)="acceptedCandidat()" *ngIf="idapplication!='AUTO' && (etat=='REJECTED' || etat=='ENCOURS')">Accepter</button>
+      <span *ngIf="isAcceptationValide" class="validation-message">
+        <i class="fas fa-check-circle validation-icon"></i> Acceptation valide
+      </span>
+      <button type="button" class="btn btn-secondary" (click)="rejectedCandidat()" *ngIf="idapplication!='AUTO' && (etat=='ACCEPTED' || etat=='ENCOURS')">Rejeter</button>
+      <span *ngIf="isRejetValide" class="validation-message">
+        <i class="fas fa-times-circle validation-icon"></i> Rejet valide
+      </span>
+    </div>
+      
+  </div>
+</div>

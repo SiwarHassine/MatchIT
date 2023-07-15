@@ -1,0 +1,876 @@
+{
+  "users": [
+    {
+      "firstname": "Recruteur12",
+      "lastname": "HSN",
+      "email": "salma.hamrouni@sofrecom.com",
+      "phone": 23456566,
+      "id": 1
+    },
+    {
+      "firstname": "salma12",
+      "lastname": "test",
+      "email": "salma.hamrouni@sofrecom.com",
+      "phone": 2345654,
+      "id": 3
+    },
+    {
+      "firstname": "yassine",
+      "lastname": "test",
+      "email": "salmaTESTH@gmail.com",
+      "phone": 2345654,
+      "id": 4
+    }
+  ],
+  "offers": [
+    {
+      "title": "developpeur React",
+      "description": "Intégrer en Typescript et React les maquettes visuelles des pages Web et des vues de la plateforme. et Construire des composants qui peuvent être ré-utilisés sur la plateforme",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "developpeur Java",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "title": "Consultant php Laravel",
+      "description": "Developper une application microservice avec SpringBoot",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "Developpeur C#",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "id": 5,
+      "title": "Manager",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "id": 6,
+      "title": "Developpeur Springboot & Angular",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "title": "Ingénieur PHP Symfony",
+      "description": "Developper une application microservice avec SpringBoot",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "title": "developpeur Java Springboot",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "id": 11,
+      "title": "developpeur django",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "id": 12,
+      "title": "developpeur C++",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "id": 13,
+      "title": "developpeur Python",
+      "description": "Developper une application microservice avec SpringBoot"
+    },
+    {
+      "title": "Devops",
+      "description": "gitlab ci/cd docker",
+      "id": 14
+    },
+    {
+      "title": "Poste Java",
+      "description": "maitriser java\nspringboot\nmaven",
+      "id": 15
+    },
+    {
+      "title": "sfqq",
+      "description": "",
+      "id": 16
+    }
+  ],
+  "applications": [
+    {
+      "id": 1,
+      "offer": [
+        {
+          "id": 3,
+          "title": "Poste Java",
+          "description": "maitriser java\nspringboot\nmaven"
+        }
+      ],
+      "user": [
+        {
+          "id": 26,
+          "firstname": "testUser",
+          "lastname": "test",
+          "email": "UserTESTH@gmail.com"
+        }
+      ],
+      "status": "validé",
+      "date": "2023-04-12",
+      "score": "67%",
+      "type": "auto"
+    },
+    {
+      "id": 2,
+      "offer": [
+        {
+          "id": 11,
+          "title": "developpeur django",
+          "description": "Developper une application microservice avec SpringBoot"
+        }
+      ],
+      "user": [
+        {
+          "id": 6,
+          "firstname": "chaima",
+          "lastname": "test",
+          "email": "chaimaTESTH@gmail.com"
+        }
+      ],
+      "status": "en cours",
+      "date": "2023-04-12",
+      "score": "87%",
+      "type": "directe"
+    },
+    {
+      "id": 3,
+      "offer": [
+        {
+          "id": 11,
+          "title": "developpeur django",
+          "description": "Developper une application microservice avec SpringBoot"
+        }
+      ],
+      "user": [
+        {
+          "id": 4,
+          "firstname": "salma",
+          "lastname": "test",
+          "email": "salmaTESTH@gmail.com"
+        }
+      ],
+      "status": "en cours",
+      "date": "2023-04-12",
+      "score": "56%",
+      "type": "auto"
+    },
+    {
+      "id": 4,
+      "offer": [
+        {
+          "id": 2,
+          "title": "Développeur Full Stack",
+          "description": "maitriser java\nspringboot\nmaven"
+        }
+      ],
+      "user": [
+        {
+          "id": 76,
+          "firstname": "testUser",
+          "lastname": "test",
+          "email": "UserTESTH@gmail.com"
+        }
+      ],
+      "status": "validé",
+      "date": "2023-04-12",
+      "score": "67%",
+      "type": "directe"
+    },
+    {
+      "id": 5,
+      "offer": [
+        {
+          "id": 2,
+          "title": "Ingénieur d'Etudes et Développement .NET",
+          "description": "maitriser java\nspringboot\nmaven"
+        }
+      ],
+      "user": [
+        {
+          "id": 98,
+          "firstname": "salma",
+          "lastname": "test",
+          "email": "salma@gmail.com"
+        }
+      ],
+      "status": "validé",
+      "date": "2022-04-12",
+      "score": "67%",
+      "type": "directe"
+    }
+  ],
+  "candidats": [
+    {
+      "firstname": "salma",
+      "lastname": "test",
+      "email": "salmaTESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1998-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 1
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1990-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1998-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1997-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1997-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1997-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1997-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1989-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1989-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1989-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "homme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1999-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "userTest",
+      "lastname": "test",
+      "email": "TESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1996-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 2
+    },
+    {
+      "firstname": "chaima",
+      "lastname": "test",
+      "email": "chaimaTESTH@gmail.com",
+      "phone": "23456566",
+      "birthdate": "1997-04-20",
+      "genre": "femme",
+      "experiences": [
+        {
+          "id": 1,
+          "position": "Web Developer",
+          "company": "ABC Company",
+          "description": "Developed and maintained company website using HTML, CSS, and JavaScript."
+        },
+        {
+          "id": 2,
+          "position": "Software Engineer",
+          "company": "XYZ Inc.",
+          "description": "Developed and maintained software applications using Java and Python."
+        }
+      ],
+      "educations": [
+        {
+          "id": 1,
+          "diplome": "licence",
+          "ecole": "fseg",
+          "date": "2023-04-12"
+        }
+      ],
+      "competences": [
+        "Angular",
+        "Python"
+      ],
+      "id": 3
+    }
+  ]
+}

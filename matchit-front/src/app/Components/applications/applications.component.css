@@ -1,0 +1,60 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-top: 150px
+  }
+  
+  .content {
+    padding: 30px 20px;
+    margin-top: 180px;
+    margin-bottom: 100px;
+    max-width: 1700px;
+    display: flex;
+    flex-flow: column;
+  }
+  .dash-widget {
+    color: #666;
+    font-size: 30px;
+    line-height: 1;
+    float: left;
+  }
+  .dash-widget .dash-widget-info {
+    margin-left: 80px;
+  }
+  .dash-widget .dash-widget-info h3 {
+    font-size: 26px;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .card{
+    border: 2px solid #030303;
+  }
+  .card table{
+    height: 300px
+  }
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .text-yellow {
+    color: rgb(255, 196, 0);
+  }
+  .btn-page{
+    background-color: #0a0b0c; /* Couleur de fond du bouton */
+    color: #fff;
+  }
+  .text-green {
+    color: rgb(2, 165, 51);
+  }
+
+  .btn{
+    margin-left : 5px
+  }
+  
+  
+  
+  
+  
+  

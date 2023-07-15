@@ -1,0 +1,39 @@
+<header role="banner">
+    <div class="col-sm-12 nopadding text-center" style="height: 40px; display: none">
+      <p class="pt-2" style="background-color: red; color: white; margin-bottom: 0px;height: 100%; font-size: 15px">Données partielles, en cours de résolution </p>
+    </div>
+    <nav class="navbar navbar-dark navbar-expand-md supra" role="navigation">
+      <div class="container-fluid">
+        <div class="input-group-prepend d-md-none">
+          <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#collapsing-navbarHead" aria-controls="collapsing-navbarHead" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="dropdown-menu" >
+            <a class="dropdown-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">{{'label' | translate}}</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/">matchIT</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/marketing">{{'label' | translate}}</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/demande">{{'label' | translate}}</a>
+            <a class="dropdown-item" routerLinkActive="active" routerLink="/incoherence">{{'label' | translate}}</a> 
+          </div>
+        </div>
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logo-sofrecom.png" alt="Back to homepage" title="Back to homepage" loading="lazy" width="15" height="15">
+          <span id="obs-fe-2" class="align-self-end align-self-lg-baseline ml-2">{{'MatchIT' | translate}}</span>
+        </a>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button type="button" class="nav-link btn btn-link btn-inverse dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
+              <span class="svg-avatar mr-1" aria-hidden="true"></span>
+              <!--<span class="svg-text">{{roles}}</span> -->
+              <span class="svg-text"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a class="dropdown-item" href="#">{{'label' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'label' | translate}}</a></li>
+            </ul>
+          </li>
+        </ul>
+        </div>
+    </nav>
+</header>

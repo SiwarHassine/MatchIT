@@ -1,0 +1,181 @@
+@media (max-width: 1024px){
+  .link-title{
+      font-size: small !important;
+  }
+}
+ /*
+ * Sidebar
+ */
+.sidebar {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 2; /* Behind the navbar */
+   padding: 0px 0 0; /* Height of navbar */
+   /*box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);*/
+   margin-top: 71px; /*71px (111px: bande rouge)*/
+   background: #f4f5f7 linear-gradient(to bottom,#f4f5f7 0%,#f4f5f7 150px) 0 0;
+}
+.sidebar-sticky {
+   position: relative;
+   top: 0;
+   height: calc(100vh - 48px);
+   padding-top: 0;
+   overflow-x: hidden;
+   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+   /*border-right: 1px solid #eeeeee;*/
+}
+.nav-update{
+   position: absolute;
+   bottom: 0;
+   margin-bottom: 40px;
+}
+.title-update{
+  /* color: rgb(90, 89, 89);*/
+}
+.nav-link-update{
+   margin-left: 20px;
+   font-weight: 500;
+   background: #f4f5f7 no-repeat right center;
+   height: 45px;
+  /* border-left: 3px solid #bab5b5;*/
+   color: black;
+   text-decoration:none;
+}
+ .sidebar .nav-link .feather {
+   margin-right: 4px;
+   color: #999;
+}
+.sidebar .nav-link.active{
+   border-left: 3px solid #ff6600;
+   color: #ff6600 !important;
+   font-weight: bold !important;
+}
+.sidebar .nav-link:hover{
+   color: #ff6600 !important;
+   font-weight: bold !important;
+}
+.sidebar .nav-link {
+   font-weight: 500;
+   background: #f4f5f7 no-repeat right center;
+   height: 45px;
+  /* border-left: 3px solid #bab5b5;*/
+   color: black;
+}
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+   color: inherit;
+}
+.sidebar-heading {
+   font-size: .75rem;
+   text-transform: uppercase;
+}
+.item{
+   color: #bab5b5;
+   font-weight: 400;
+}
+.item-update{
+   color: #bab5b5;
+   font-weight: 400;
+   height: 18px;
+}
+.item span {padding: 5px 8px;}
+div#closeOpenIcon {
+      text-align: center;
+      padding: 15px;
+      color: #9d9d9d;
+}
+div#header {
+   padding: 10px;
+}
+#header .container-fluid {
+   margin: 0;
+}
+a.navbar-brand {
+   margin-bottom: 0!important;
+}
+.icon-upr {
+  /* background-image: url("./../../../assets/icons/list.png"); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-accueil{
+  /* background-image: url("./../../../assets/icons/home.png"); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-request{
+  /* background-image: url("./../../../assets/icons/request.jpg"); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-jalon {
+  /* background-image: url("./../../../assets/icons/site.jpg"); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-search-btn {
+  /* background-image: url("./../../../assets/icons/search.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-mck {
+  /* background-image: url("./../../../assets/icons/incoherence.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-majApp {
+  /* background-image: url("./../../../assets/icons/majApp.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-operation {
+  /* background-image: url("./../../../assets/icons/mark.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-collapse {
+  /* background-image: url("./../../../assets/icons/menu2.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 100%;
+}
+.icon-superuser{
+ /* background-image: url("./../../../assets/icons/icons8-user-32.png");*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.icon-shrink {
+  /* background-image: url("./../../../assets/icons/embed.png");*/
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 22px;
+   height: 36px;
+   width: 60px;
+   background-color: #f4f5f7;
+   border: hidden;
+   outline: none;
+}
+.collapsed .nav-link span.link-title {
+   /* display: none; */
+   opacity: 0;
+}
+.collapsed{
+   width: 60px;
+}
+div.nav-link {
+  cursor: pointer;
+}
+li ul.nav {
+  padding-left: 35px;
+}

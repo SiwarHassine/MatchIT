@@ -1,0 +1,59 @@
+
+<ng-container *ngIf="isLoading">
+  <app-loading-page></app-loading-page>
+</ng-container>
+<div class="content container-fluid">      
+    <div class="row"> 
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body"> 
+            <table class="table table-bordered" *ngIf="applications">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Titre de l'offre</th>
+                  <th>Suivi</th>
+                  <th>Date d'application</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let application of applications">
+                  <td><input type="checkbox" [(ngModel)]="application.selected" (change)="showApplicationDetails(application)"></td>
+                  <td>{{ application?.offer?.title }}</td>
+                  <td [ngClass]="{ 'text-yellow': application?.etat === 'ENCOURS', 'text-green': application?.etat === 'VALIDE' }"><b>{{ application?.etat }}</b></td>
+                  <td>{{ application?.dateCreation }}</td>
+                 
+                </tr>
+              </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-end align-items-center">
+                  <button class="btn btn-page mr-1" [disabled]="pageNumber == 0" (click)="previousPage()">Previous</button>
+                  <div class="mr-1">Page {{ pageNumber + 1 }} / {{ totalPages }}</div>
+                  <button class="btn btn-page" [disabled]="pageNumber == totalPages - 1" (click)="nextPage()">Next</button>
+                </div>
+              </div>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-3">
+              <div class="card">
+                  <div class="card-body">
+                      <span *ngIf="loading">
+                          <!-- Ajoutez ici votre indicateur de chargement (ex: un spinner) -->
+                          Chargement en cours...
+                        </span>
+                      <div *ngIf="selectedApplication !loading" >
+                        <h4><b>{{applicationPostulated?.length}}</b></h4>
+                        <p><b>Nombre des Candidats</b></p>
+
+                        <button class="btn btn-dark" [routerLink]="['/offerDetails', selectedApplication?.offer?.id]">Voir Offre</button>
+                        <button class="btn btn-dark" (click)="deleteApplication(selectedApplication.id)">Annuler la candidature</button>
+                      </div>
+                      
+                     
+                      
+                </div>
+            </div>
+      </div>
+</div>      

@@ -1,0 +1,29 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-top: 150px;
+  }
+  
+  .card {
+    margin-bottom: 50px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .profile-picture {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    margin-top: 20px;
+  }
+  

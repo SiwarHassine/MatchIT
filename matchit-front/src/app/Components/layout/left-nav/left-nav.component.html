@@ -1,0 +1,108 @@
+    <div class="row">
+      <nav class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar" >
+        <div class="sidebar-sticky">
+          <div class="nav-item lastLiInMenu text-center">
+            <button class="icon-shrink" > </button>
+            <hr class="mt-0 mb-0">
+          </div>
+          <div class="flexcolumn" >
+            <ul class="nav flex-column">
+              <li class="item">
+                  <a class="nav-link text-center outline-none" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/" >
+                    <span class="icon-accueil"></span>
+                    <span class="link-title">{{'label' | translate}}</span>
+                  </a>
+              </li>
+              <li class="item">
+                  <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/site" >
+                  <span class="icon-jalon"></span>
+                  <span class="link-title">{{'label'' | translate}}</span>
+                </a>
+              </li>
+              <li class="item parc">
+                <div class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/parc" >
+                  <span class="icon-jalon"></span>
+                  <span class="link-title">{{'label'' | translate}}</span>
+                </div>
+                <ul class="nav flex-column" [style]="dispUlParc">
+                  <li>
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/prev">
+                      <span class="link-title">{{'label' | translate}}</span>
+                    </a>
+                  </li>
+                  <li >
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/scenario">
+                      <span class="link-title">{{'label' | translate}}</span>
+                    </a>
+                  </li>
+                  <li >
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/simule">
+                      <span class="link-title">{{'label' | translate}}</span>
+                    </a>
+                  </li>
+                  <!--li *ngIf="concepteur">
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/optimise">
+                      <span class="link-title">{{'nav.optimise' | translate}}</span>
+                    </a>
+                  </li>
+                  <li *ngIf="concepteur">
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/parcoptimise">
+                      <span class="link-title">{{'nav.ParcOptimise' | translate}}</span>
+                    </a>
+                  </li-->
+                </ul>
+              </li>
+              <li class="item">
+                  <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/marketing">
+                  <span class="icon-operation"></span>
+                  <span class="link-title">{{'label' | translate}}</span>
+                </a>
+              </li>
+              <li class="item">
+                  <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/demande" >
+                  <span class="icon-request"></span>
+                  <span class="link-title">{{'label' | translate}}</span>
+                </a>
+              </li>
+              <li class="item">
+                  <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/incoherence" >
+                  <span class="icon-mck"></span>
+                  <span class="link-title">{{'label'| translate}}</span>
+                </a>
+              </li>
+            <!--  <li *ngIf="isSuperUser" class="item setting">
+                <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/setting" (click)="toggle('setting')">
+                  <span class="icon-superuser"></span>
+                  <span class="link-title">{{'label' | translate}}</span>
+                </a>
+                <ul class="nav flex-column" [style]="dispUlSetting">
+                  <li>
+                    <a class="nav-link text-center outline-none" routerLinkActive="active" routerLink="/setting/cout">
+                      <span class="link-title">{{'label' | translate}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>-->
+            </ul> 
+          </div>  
+          <div class="flexcolumn nav-update">
+            <ul class="nav flex-column">
+              <li class="item">
+                <a class="nav-link text-center outline-none">
+                  <span class="icon-majApp"></span>
+                  <span class="link-title" style="cursor: pointer;" (click)="showUpdate = !showUpdate">{{'nav.majApp' | translate}}</span>
+                </a>
+              </li>
+            </ul>
+        <!--    <ul *ngIf="showUpdate === true && obj !== null" class="nav flex-column" style="margin-left: 20px">
+              <li class="item-update" *ngFor="let lastU of LastUpdate">
+                <a class="nav-link-update outline-none">
+                  <span class="title-update"><strong style="margin-right: 5px;">{{lastU.value}} : </strong><p style="float: right;">{{ obj[lastU.key] | date:"yyyy-MM-dd" }}</p></span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </nav>
+    </div>
+  

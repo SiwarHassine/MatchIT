@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Photo de profil</h5>
+          <div class="profile-picture float-start d-flex align-items-center">
+            <img src="../../assets/user.jpg" alt="Photo du candidat" class="w-75 h-75">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!showFormCV && user.roles=='CANDIDAT'" class="card">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="form-group">
+            <button (click)="showFormCV = true" class="btn btn-secondary">Upload new CV</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showFormCV" class="card">
+        <div class="card-body">
+          <h5 class="card-title">New CV</h5>
+          <div class="form-group">
+            <input type="file" id="cvFile" name="cvFile" class="form-control" (change)="updateCV($event)">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+      </div>
+    </div>
+    
+    <div class="col-md-8">
+      <div *ngIf="!showForm" class="card">
+        <div class="card-body">
+          <h5 class="card-title">Informations personnelles</h5>
+          <p>Firstname: {{profil?.firstname}}</p>
+          <p>Lastname: {{profil?.name}}</p>
+          <p>Email: {{profil?.email}}</p>
+          <p>Phone: {{profil?.phone}}</p>
+          <p>Birthdate: {{profil?.datenaisance}}</p>
+          <button (click)="showForm = true" class="btn btn-secondary">Modifier</button>
+        </div>
+      </div>
+      <div *ngIf="showForm" class="card">
+        <div class="card-body">
+          <h5 class="card-title">Modifier les informations personnelles</h5>
+          <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="firstname">Prénom</label>
+                <input type="text" class="form-control" id="firstname" formControlName="firstname" required>
+              </div>
+              <div class="form-group">
+                <label for="lastname">Nom de famille</label>
+                <input type="text" class="form-control" id="lastname" formControlName="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">phone</label>
+                <input type="phone" class="form-control" id="phone" formControlName="phone" required>
+              </div>
+              <div class="form-group">
+                <label for="birthdate">birthdate</label>
+                <input matInput type="date" formControlName="birthdate" name="birthdate" required>
+              </div>
+              
+              <button type="submit" class="btn btn-success">Enregistrer</button>
+                <button type="button" (click)="showForm = false" class="btn btn-light">Annuler</button>
+            </form>
+                
+ 
+        </div>
+      </div>
+      <div *ngIf="!showFormPass" class="card">
+        <div class="card-body">
+          <h5 class="card-title">Modifier le mot de passe</h5>
+          <div class="form-group">
+            <button (click)="showFormPass = true" class="btn btn-secondary">Modifier password</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showFormPass" class="card">
+        <div class="card-body">
+          <h5 class="card-title">Modification mot de passe</h5>
+          <form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmitPass()" #form="ngForm">
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" formControlName="newPassword"  required>
+              </div>
+              <button type="submit" class="btn btn-success">Enregistrer</button>
+                <button type="button" (click)="showFormPass = false" class="btn btn-light">Annuler</button>
+            </form>
+                
+ 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,198 @@
+<ng-container *ngIf="isLoading">
+  <app-loading-page></app-loading-page>
+</ng-container>
+<div class="container">
+   <div class="row">
+        <div class="col-md-8">
+    <div class="input-group">
+      <input type="text" class="form-control search" placeholder="Chercher un recruteur..." [(ngModel)]="searchValue" (ngModelChange)="onSearch()">
+      </div>
+      </div>
+      <div class="col-md-4">
+            <button class="btn btn-outline-dark" (click)="showAddModal()">Ajouter un recruteur</button>
+          </div>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+          <tr>
+          <th></th>
+          <th>prenom</th>
+          <th>nom</th>
+          <th>email</th>
+          <th>N° telephone</th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recruteur of displayedRecruteurs">
+          <td><i class="fa fa-user fa-2x" aria-hidden="true"></i></td>
+          <td (click)="showRecruteurDetails(recruteur)">{{recruteur.firstname}}</td>
+          <td (click)="showRecruteurDetails(recruteur)">{{recruteur.name}}</td>
+          <td (click)="showRecruteurDetails(recruteur)">{{recruteur.email}}</td>
+          <td>{{recruteur.phone}}</td>
+          <td class="icon-container-pencil">
+              <button class="btn btn-light" (click)="showUpdateModal(recruteur.id)">  
+                  <i class="fa fa-pencil icon-pencil" aria-hidden="true"></i>
+                </button>
+              
+              </td>
+              <td class="icon-container-circle">
+               <button class="btn btn-light" (click)="showRecruteurDetails(recruteur)"> 
+                   <i class="fa fa-info-circle icon-circle" aria-hidden="true"></i>
+                </button>
+              </td>
+              <td class="icon-container-times">
+               <button class="btn btn-light" (click)="showDeleteModal(recruteur?.id)"> 
+                   <i class="fa fa-times icon-times" aria-hidden="true"></i>
+               </button>
+              </td>    
+        </tr>
+      </tbody>
+    </table>
+      <div class="row">
+          <div class="row">
+           <div class="col-md-12 d-flex justify-content-end align-items-center">
+           <button class="btn btn-page mr-1" [disabled]="pageNumber == 0" (click)="previousPage()">Previous</button>
+           <div class="mr-1">Page {{ pageNumber + 1 }} / {{ totalPages }}</div>
+           <button class="btn btn-page" [disabled]="pageNumber == totalPages - 1" (click)="nextPage()">Next</button>
+           </div>
+       </div>
+         </div> 
+  
+  <!--  <div class="row">
+      <div class="col-md-12 d-flex justify-content-end align-items-center">
+        <button class="btn btn-page mr-1" [disabled]="pageNumber == 0" (click)="previousPage()">Previous</button>
+        <div class="mr-1">Page {{ pageNumber + 1 }} / {{ totalPages }}</div>
+        <button class="btn btn-page" [disabled]="pageNumber == totalPages - 1" (click)="nextPage()">Next</button>
+      </div>
+    </div> -->
+  </div>
+
+   <!-- Modal d'ajout recruteur -->
+   <div class="modal fade" id="addRecModal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addRecModalLabel">Ajouter une offre</h5>
+            </div>
+            <div class="modal-body">
+                    <form [formGroup]="recruteurForm">
+                            <div class="form-group">
+                              <label for="firstname">First Name</label>
+                              <input type="text" class="form-control" id="firstname" formControlName="firstname" />
+                            </div>
+                            <div class="form-group">
+                              <label for="name">Last Name</label>
+                              <input type="text" class="form-control" id="name" formControlName="name" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" id="email" formControlName="email" required />
+                                    <div *ngIf="recruteurForm.get('email')?.invalid && (recruteurForm.get('email')?.dirty || recruteurForm.get('email')?.touched)" class="alert alert-danger">
+                                      <div *ngIf="recruteurForm.get('email')?.hasError('required')">
+                                        Email is required.
+                                      </div>
+                                      <div *ngIf="recruteurForm.get('email')?.hasError('email') && !recruteurForm.get('email')?.hasError('required')">
+                                            
+                                        Invalid email format.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="phone">phone</label>
+                                    <input type="text" class="form-control" id="phone" formControlName="phone" />
+                                  </div>  
+                                  <div class="form-group">
+                                      <label for="genre">Genre :</label>
+                                      <select id="genre" name="genre" class="form-control" formControlName="genre"  >
+                                        <option default>...</option>
+                                        <option value="HOMME">Homme</option>
+                                        <option value="FEMME">Femme</option>
+                                      </select>
+                                </div>                         
+                          </form>
+                          </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" data-dismiss="modal" (click)="hideModel()">Close</button>
+                          <button type="button" class="btn btn-dark" (click)="addRecruteur()">Add Recruteur</button>
+                        </div>                
+            </div>
+            </div>
+</div>
+    <!--Modal update Recruteur-->
+    <div class="modal fade" id="updateRec" tabindex="-1" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div  class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addRecModalLabel">update un recruteur</h5>
+                </div>
+                <div class="modal-body">
+                  <form #recruteurUpdateForm="ngForm" (ngSubmit)="onSubmitUpdate(recruteurUpdateForm)">                                
+                    <div class="form-group">
+                        <label for="firstname">Prenom</label>
+                         <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="firstname">
+                    </div> 
+                    <div class="form-group">
+                            <label for="name">Nom</label>
+                             <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+                        </div>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="phone">N° Telephone</label>
+                         <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="phone">
+                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal" (click)="hideModel()">Close</button>
+                    <button type="submit" class="btn btn-dark">Enregistrer</button>
+                  </div>
+                </form>  
+                </div>
+        </div>
+     </div>
+ </div>
+
+    <!-- Recruteur details modal -->
+    <div  class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel">
+                  {{recruteur?.firstname}} {{recruteur?.name}}
+                </h5>
+              </div>
+              <div class="modal-body">
+                 <h6>Email:  {{recruteur?.email}}</h6>  
+                  <h6>N° telephone : {{recruteur?.phone}}</h6>  
+                </div>    
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hideModel()">Close</button>
+                    </div>    
+                  </div>
+                </div>
+                
+             
+             </div>
+<!-- Modal de confirmation de suppression -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmer la suppression</h5>
+            </div>
+            <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer ce recruteur ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hideModel()">Annuler</button>
+              <button type="button" class="btn btn-danger" (click)="deleteRecruteur()">Supprimer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+                          

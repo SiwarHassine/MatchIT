@@ -1,0 +1,296 @@
+<ng-container *ngIf="isLoading">
+  <app-loading-page></app-loading-page>
+</ng-container>
+<!-- offers.component.html -->
+<div class="content container-fluid"  *ngIf="!isLoading">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card dash-widget">
+        <div class="card-body">
+          <div class="card-title">
+            <b>Volume de postulation par mois</b></div>
+          <div class="dash-widget-info  chart-container">
+            <ngx-charts-advanced-pie-chart [results]="applicationsByMonth" [view]="view" [scheme]="colorScheme" [gradient]="gradient"
+              (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+            </ngx-charts-advanced-pie-chart>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card dash-widget">
+        <div class="card-body">
+          <div class="input-group">
+            <input type="text" class="search form-control" placeholder="chercher une offre..." [(ngModel)]="searchValue" (ngModelChange)="onSearch()">
+          </div>
+
+          <div class="row">
+            <div class="col-md-9">
+              <div class="btn-group radio" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="filter" id="all-filter" autocomplete="off" checked (click)="setFilter('all')">
+                <label class="btn btn-outline-black" for="all-filter">All</label>
+
+                <input type="radio" class="btn-check" name="filter" id="expired-filter" autocomplete="off" (click)="setFilter('expired')">
+                <label class="btn btn-outline-black" for="expired-filter">Expired</label>
+
+                <input type="radio" class="btn-check" name="filter" id="not-expired-filter" autocomplete="off" (click)="setFilter('notExpired')">
+                <label class="btn btn-outline-black" for="not-expired-filter">Not Expired</label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-outline" (click)="showAddModal()">Ajouter une offre</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped" >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Date d'expiration</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let offer of displayedOffers">
+                    <td>
+                      <input type="checkbox" [(ngModel)]="offer.selected" (change)="showCandidatPostule(offer)">
+                    </td>
+                    <td (click)="showOfferDetails(offer)">{{offer.id}}</td>
+                    <td (click)="showOfferDetails(offer)">{{offer.title}}</td>
+                    <td>{{offer.dateExpiration}}</td>
+                    <td *ngIf="offer.application?.length > 0">
+                      <span class="badge text-bg-warning" (click)="showCandidatModal(offer)" type="button">{{offer.application?.length}} Candidats</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row">
+                <div class="col-md-12 d-flex justify-content-end align-items-center">
+                  <button class="btn btn-page mr-1" [disabled]="pageNumber == 0" (click)="previousPage()">Previous</button>
+                  <div class="mr-1">Page {{ pageNumber + 1 }} / {{ totalPages }}</div>
+                  <button class="btn btn-page" [disabled]="pageNumber == totalPages - 1" (click)="nextPage()">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card dash-widget">
+        <div class="card-body">
+          <div class="dash-widget-info ">
+            <div *ngIf="selectedOffer">
+              <h5>
+                <b>Offre: {{ selectedOffer.title }}</b>
+              </h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Candidat</th>
+                    <th>Score compétences</th>
+                    <th>Score expérience</th>
+                    <th>Décision</th>
+                    <th>Etat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let application of selectedOffer?.application; let i = index">
+                      <td>
+                          <a type="button" class="btn btn-link" [routerLink]="['/candidat', application?.candidat?.fileId, application?.id, application?.etat , 'offerrecrutor']">
+                        {{ application?.candidat?.firstname }} {{ application?.candidat?.name }}
+                        </a>
+                      </td>
+                    <td>{{ application?.score | number:'1.2-2' }}%</td>
+                    <td>{{ application?.scoreExp | number:'1.2-2' }}%</td>
+                   
+                    <td>
+
+                      <span *ngIf="loading">
+                        <!-- Ajoutez ici votre indicateur de chargement (ex: un spinner) -->
+                        Chargement en cours...
+                      </span>
+                      <span *ngIf="application.prediction && !loading" [ngClass]="{
+                                                'text-success': application.prediction.prediction === 'yes',
+                                                'text-warning': application.prediction.prediction === 'pending',
+                                                'text-danger': application.prediction.prediction === 'no'
+                                              }">
+                        <b>{{ application.prediction.prediction === 'yes' ? 'Candidat à accepter' : (application.prediction.prediction === 'pending'
+                        ? 'Candidat moyen' : 'Candidat a rejete') }}</b>
+                      </span>
+                    </td>
+                    <td>{{ application?.etat}} </td>
+
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- ... Autres détails de l'offre ... -->
+            </div>
+          </div>
+          <div class="dash-widget-info text-center" *ngIf="!selectedOffer">
+            <p class="text-muted">Aucune offre sélectionnée. Veuillez sélectionner une offre pour afficher les détails.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal d'ajout d'offre -->
+<div class="modal fade" id="addOfferModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addOfferModalLabel">Ajouter une offre</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="hideModel()" aria-label="Fermer">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #offerForm="ngForm" (ngSubmit)="onSubmitAdd(offerForm)">
+          <div class="form-group">
+            <label for="titleAdd">Titre</label>
+            <input type="text" class="form-control" id="titleAdd" [(ngModel)]="titleAdd" name="titleAdd">
+          </div>
+          <div class="form-group">
+            <label for="descriptionAdd">Description</label>
+            <textarea class="form-control" id="descriptionAdd" [(ngModel)]="descriptionAdd" name="descriptionAdd"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="dateExpiration">Date d'expiration</label>
+            <input type="date" class="form-control" id="dateExpiration" [(ngModel)]="dateExpiration" name="dateExpiration">
+          </div>
+          <button type="submit" class="btn btn-success">Valider</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal update offer-->
+<div class="modal fade" id="updateOfferModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addOfferModalLabel">update une offre</h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="hideModel()" aria-label="Fermer">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #offerUpdateForm="ngForm" (ngSubmit)="onSubmitUpdate(offerUpdateForm)">
+          <div class="form-group">
+            <label for="title">title</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="title" required>
+          </div>
+          <div class="form-group">
+            <label for="dateExpiration">Date d'expiration</label>
+            <input class="form-control" id="dateExpiration" [(ngModel)]="dateExpiration" name="dateExpiration">
+          </div>
+          <div class="form-group">
+            <label for="description">description</label>
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Offer details modal -->
+<div class="modal fade" id="offerDetailsModal" tabindex="-1" role="dialog" aria-labelledby="offerDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="offerDetailsModalLabel">
+          {{offer?.id}} : {{offer?.title}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" (click)="hideModel()" aria-label="Fermer">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{offer?.description}} </p>
+        <p>
+          <b>Date d'expiration : </b>{{offer?.dateExpiration}}</p>
+        <button class="btn btn-outline-dark btn-sm" (click)="deleteOffer(offer.id)">Supprimer</button>
+        <button class="btn btn-outline-dark btn-sm" (click)="showUpdateModal(offer.id)">Modifier</button>
+
+        <div *ngIf="isUpdateMode">
+          <form #offerUpdateForm="ngForm" (ngSubmit)="onSubmitUpdate(offerUpdateForm)">
+            <div class="form-group">
+              <label for="title">Titre</label>
+              <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" [(ngModel)]="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="dateExpiration">Date d'expiration</label>
+              <input type="date" class="form-control" id="dateExpiration" [(ngModel)]="dateExpiration" name="dateExpiration">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-warning ">Enregistrer</button>
+              <button class="btn btn-secondary" (click)="cancelUpdate()">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- Consult candidat -->
+<div class="modal fade" id="candidatModal" tabindex="-1" role="dialog" aria-labelledby="offerDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="candidatModalLabel">
+          {{offer?.id}} : {{offer?.title}}
+        </h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="hideModel()"></button>
+      </div>
+
+      <div class="modal-body">
+        <ul id="candidate-list">
+          <li *ngFor="let application of offer?.application">
+            <a type="button" class="btn btn-link" (click)="hideModel()" [routerLink]="['/candidat', fileId]">
+              {{ application?.candidat?.firstname }} {{ application?.candidat?.name }}
+            </a>
+
+            <a>,
+              <b>Score competences : </b> {{ application?.score | number:'1.2-2' }}%</a>
+            <a>,
+              <b>Score experience : </b>{{ application?.scoreExp | number:'1.2-2' }}%</a>
+            <button class="custom-button" (click)="getPrediction(application)">
+              Décision
+            </button>
+            <ng-container *ngIf="application?.prediction">
+              <a>,
+                <b>Prédiction :</b> {{ application?.prediction.prediction }}</a>
+            </ng-container>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Consult details candidat -->
+<div class="modal fade" id="showCandidatModal" tabindex="-1" role="dialog" aria-hidden="true">
+  
+</div>

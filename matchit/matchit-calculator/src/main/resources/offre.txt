@@ -1,0 +1,19 @@
+Développeur Angular
+
+
+
+
+
+ Très bon niveau sur les technologies actuelles WEB (Java, Angular) ;
+
+ Capacité à appréhender et à travailler dans un code existant ;
+
+ Connaissance des workflows de déploiement et tests automatisés;
+
+Environnement technique ?
+
+Angular 11, Typescript
+Node
+NiceToHave : RxJs & NgRx
+Intégration d’APIJIRA & Github
+Intégration continue (CI), Déploiement continu (CD)
